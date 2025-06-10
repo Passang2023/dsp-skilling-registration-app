@@ -64,7 +64,10 @@ export type RuleType<T extends FieldValues> = { [name in keyof T]: TRule<T> };
 export type InputControllerType<T extends FieldValues> = {
   name: Path<T>;
   control: Control<T>;
-  rules?: RuleType<T>;
+  rules?: Omit<
+    RegisterOptions<T, Path<T>>,
+    'disabled' | 'valueAsNumber' | 'valueAsDate' | 'setValueAs'
+  >;
 };
 
 interface ControlledInputProps<T extends FieldValues>

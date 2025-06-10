@@ -1,10 +1,11 @@
-import { FlashList } from '@shopify/flash-list';
+// import { FlashList } from '@shopify/flash-list';
 import React from 'react';
 
 import type { Post } from '@/api';
 import { usePosts } from '@/api';
 import { Card } from '@/components/card';
 import { EmptyList, FocusAwareStatusBar, Text, View } from '@/components/ui';
+import SubmitForm from '@/components/Submit-form';
 
 export default function Feed() {
   const { data, isPending, isError } = usePosts();
@@ -21,15 +22,16 @@ export default function Feed() {
     );
   }
   return (
-    <View className="flex-1 ">
-      <FocusAwareStatusBar />
-      <FlashList
+    <View className="flex-1 p-30 ">
+      <SubmitForm />
+      {/* <FocusAwareStatusBar /> */}
+      {/* <FlashList
         data={data}
         renderItem={renderItem}
         keyExtractor={(_, index) => `item-${index}`}
         ListEmptyComponent={<EmptyList isLoading={isPending} />}
         estimatedItemSize={300}
-      />
+      /> */}
     </View>
   );
 }
