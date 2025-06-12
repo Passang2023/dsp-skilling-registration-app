@@ -12,43 +12,54 @@ const courses: (Course & {
   startDate: string;
   endDate: string;
 })[] = [
-    {
-      id: '1',
-      title: 'React Native Basics',
-      description: 'Learn the basics of React Native.',
-      imageUrl: 'https://placehold.co/100x100',
-      trainer: {
-        name: 'Jane Doe',
-        about: 'React Native expert with 5+ years experience.',
-      },
-      location: 'Online',
-      startDate: '2025-07-01',
-      endDate: '2025-07-15',
+  {
+    id: '1',
+    title: 'React Native Basics',
+    description:
+      'Learn the basics of React Native. Learn More about the fundamentals of React Native',
+    imageUrl: 'https://placehold.co/100x100',
+    trainer: {
+      name: 'Jane Doe',
+      about: 'React Native expert with 5+ years experience.',
     },
-    {
-      id: '2',
-      title: 'Advanced TypeScript',
-      description: 'Deep dive into TypeScript for React Native.',
-      imageUrl: 'https://placehold.co/100x100',
-      trainer: {
-        name: 'John Smith',
-        about: 'TypeScript evangelist and trainer.',
-      },
-      location: 'New York',
-      startDate: '2025-08-01',
-      endDate: '2025-08-10',
+    location: 'Online',
+    startDate: '2025-07-01',
+    endDate: '2025-07-15',
+  },
+  {
+    id: '2',
+    title: 'Advanced TypeScript',
+    description: 'Deep dive into TypeScript for React Native.',
+    imageUrl: 'https://placehold.co/100x100',
+    trainer: {
+      name: 'John Smith',
+      about: 'TypeScript evangelist and trainer.',
     },
-    {
-      id: '3',
-      title: 'Expo & Nativewind',
-      description: 'Build beautiful apps with Expo and Nativewind.',
-      imageUrl: 'https://placehold.co/100x100',
-      trainer: { name: 'Alex Lee', about: 'Expo contributor and UI specialist.' },
-      location: 'Remote',
-      startDate: '2025-09-01',
-      endDate: '2025-09-12',
-    },
-  ];
+    location: 'New York',
+    startDate: '2025-08-01',
+    endDate: '2025-08-10',
+  },
+  {
+    id: '3',
+    title: 'Expo & Nativewind',
+    description: 'Build beautiful apps with Expo and Nativewind.',
+    imageUrl: 'https://placehold.co/100x100',
+    trainer: { name: 'Alex Lee', about: 'Expo contributor and UI specialist.' },
+    location: 'Remote',
+    startDate: '2025-09-01',
+    endDate: '2025-09-12',
+  },
+  {
+    id: '4',
+    title: 'Expo & Nativewind',
+    description: 'Build beautiful apps with Expo and Nativewind.',
+    imageUrl: require('../../../../assets/icon.png'),
+    trainer: { name: 'Alex Lee', about: 'Expo contributor and UI specialist.' },
+    location: 'Remote',
+    startDate: '2025-09-01',
+    endDate: '2025-09-12',
+  },
+];
 
 export default function CourseDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
