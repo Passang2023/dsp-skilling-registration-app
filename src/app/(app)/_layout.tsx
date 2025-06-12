@@ -40,15 +40,15 @@ export default function TabLayout() {
         }}
       />
 
-      {/* <Tabs.Screen
+      <Tabs.Screen
         name="style"
         options={{
           title: 'Style',
           headerShown: false,
-          tabBarIcon: ({ color }) => <StyleIcon color={color} />,
+          // tabBarIcon: ({ color }) => <StyleIcon color={color} />,
           tabBarButtonTestID: 'style-tab',
         }}
-      /> */}
+      />
       <Tabs.Screen
         name="settings"
         options={{
