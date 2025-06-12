@@ -33,6 +33,8 @@ type CourseItemProps = {
 
 function CourseItem({ course }: CourseItemProps) {
   const router = useRouter();
+
+  ///Index file for the course list screen
   return (
     <View className="flex-row items-center border-b border-neutral-200 p-4">
       {course.imageUrl && (
