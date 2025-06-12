@@ -1,18 +1,16 @@
 /* eslint-disable react/no-unstable-nested-components */
-import { Link, Redirect, SplashScreen, Tabs } from 'expo-router';
+import { SplashScreen, Tabs } from 'expo-router';
 import React, { useCallback, useEffect } from 'react';
 
-import { Pressable, Text } from '@/components/ui';
 import {
   Feed as FeedIcon,
   Settings as SettingsIcon,
-  Style as StyleIcon,
 } from '@/components/ui/icons';
-import { useAuth, useIsFirstTime } from '@/lib';
+import { useAuth } from '@/lib';
 
 export default function TabLayout() {
   const status = useAuth.use.status();
-  const [isFirstTime] = useIsFirstTime();
+  // const [isFirstTime] = useIsFirstTime();
   const hideSplash = useCallback(async () => {
     await SplashScreen.hideAsync();
   }, []);
@@ -24,25 +22,25 @@ export default function TabLayout() {
     }
   }, [hideSplash, status]);
 
-  if (isFirstTime) {
-    return <Redirect href="/onboarding" />;
-  }
-  if (status === 'signOut') {
-    return <Redirect href="/login" />;
-  }
+  // if (isFirstTime) {
+  //   return <Redirect href="/onboarding" />;
+  // }
+  // if (status === 'signOut') {
+  //   return <Redirect href="/login" />;
+  // }
   return (
     <Tabs>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Courses',
+          title: 'Desuup Skilling Programme',
           tabBarIcon: ({ color }) => <FeedIcon color={color} />,
-          headerRight: () => <CreateNewPostLink />,
+          // headerRight: () => <CreateNewPostLink />,
           tabBarButtonTestID: 'feed-tab',
         }}
       />
 
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="style"
         options={{
           title: 'Style',
@@ -50,7 +48,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <StyleIcon color={color} />,
           tabBarButtonTestID: 'style-tab',
         }}
-      />
+      /> */}
       <Tabs.Screen
         name="settings"
         options={{
@@ -64,12 +62,12 @@ export default function TabLayout() {
   );
 }
 
-const CreateNewPostLink = () => {
-  return (
-    <Link href="/feed/add-post" asChild>
-      <Pressable>
-        <Text className="px-3 text-primary-300">Create</Text>
-      </Pressable>
-    </Link>
-  );
-};
+// const CreateNewPostLink = () => {
+//   return (
+//     <Link href="/feed/add-post" asChild>
+//       <Pressable>
+//         <Text className="px-3 text-primary-300">Create</Text>
+//       </Pressable>
+//     </Link>
+//   );
+// };

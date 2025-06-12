@@ -1,40 +1,60 @@
 import { Link } from 'expo-router';
 import React from 'react';
+import { ImageBackground, StyleSheet } from 'react-native';
 
-import type { Post } from '@/api';
-import { Image, Pressable, Text, View } from '@/components/ui';
+import { Text, TouchableOpacity, View } from '@/components/ui';
 
-type Props = Post;
+type Props = {
+  id: string;
+  title: string;
+  imageUrl: string;
+  date?: string;
+};
 
-const images = [
-  'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&w=800&q=80',
-  'https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?auto=format&fit=crop&w=800&q=80',
-  'https://images.unsplash.com/photo-1515386474292-47555758ef2e?auto=format&fit=crop&w=800&q=80',
-  'https://plus.unsplash.com/premium_photo-1666815503002-5f07a44ac8fb?auto=format&fit=crop&w=800&q=80',
-  'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=800&q=80',
-];
-
-export const Card = ({ title, body, id }: Props) => {
+export const Card = ({ title, id, imageUrl, date }: Props) => {
   return (
-    <Link href={`/feed/${id}`} asChild>
-      <Pressable>
-        <View className="m-2 overflow-hidden rounded-xl  border border-neutral-300 bg-white  dark:bg-neutral-900">
-          <Image
-            className="h-56 w-full overflow-hidden rounded-t-xl"
-            contentFit="cover"
-            source={{
-              uri: images[Math.floor(Math.random() * images.length)],
-            }}
-          />
-
-          <View className="p-2">
-            <Text className="py-3 text-2xl ">{title}</Text>
-            <Text numberOfLines={3} className="leading-snug text-gray-600">
-              {body}
+    <Link href={`/course/${id}`} asChild>
+      <TouchableOpacity activeOpacity={0.6}>
+        <ImageBackground
+          imageStyle={styles.image}
+          source={{ uri: imageUrl }}
+          style={styles.imageContainer}
+        >
+          <View style={styles.textContainer}>
+            <Text numberOfLines={3} ellipsizeMode="tail" style={styles.title}>
+              {title}
             </Text>
+            {date ? <Text style={styles.date}>{date}</Text> : null}
           </View>
-        </View>
-      </Pressable>
+        </ImageBackground>
+      </TouchableOpacity>
     </Link>
   );
 };
+
+const styles = StyleSheet.create({
+  image: {
+    resizeMode: 'cover',
+    borderRadius: 10,
+    opacity: 0.6,
+  },
+  imageContainer: {
+    backgroundColor: '#888',
+    borderRadius: 10,
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    overflow: 'hidden',
+    borderRadius: 10,
+  },
+  title: {
+    color: '#fff',
+    padding: 12,
+  },
+  date: {
+    color: '#fff',
+    padding: 12,
+    marginBottom: 12,
+  },
+});

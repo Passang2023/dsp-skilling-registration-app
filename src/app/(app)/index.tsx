@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-import CourseList from '@/components/Course-list';
+
+import CourseList from '@/components/course-list';
 
 export default function index() {
   return (

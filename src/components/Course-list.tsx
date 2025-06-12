@@ -1,10 +1,10 @@
-import { useRouter } from 'expo-router';
 import * as React from 'react';
 import { FlatList } from 'react-native';
-import CourseItem from './Course-item';
 
-import { Button, Image, Text, View } from '@/components/ui';
+import { View } from '@/components/ui';
 import type { Course } from '@/types';
+
+import CourseItem from './course-item';
 
 // Demo data, replace with API later
 const courses: Course[] = [
@@ -12,25 +12,27 @@ const courses: Course[] = [
     id: '1',
     title: 'React Native Basics',
     description: 'Learn the basics of React Native.',
-    imageUrl: 'https://placehold.co/100x100',
+    imageUrl:
+      'https://desuung.org.bt/wp-content/uploads/2022/05/284465153_170962315368551_7458606490171083865_n.jpg',
   },
   {
     id: '2',
     title: 'Advanced TypeScript',
     description: 'Deep dive into TypeScript for React Native.',
-    imageUrl: 'https://placehold.co/100x100',
+    imageUrl:
+      'https://desuung.org.bt/wp-content/uploads/2022/05/284465153_170962315368551_7458606490171083865_n.jpg',
   },
   {
     id: '3',
     title: 'Expo & Nativewind',
     description: 'Build beautiful apps with Expo and Nativewind.',
-    imageUrl: 'https://placehold.co/100x100',
+    imageUrl: 'https://dsp.org.bt/assets/cms/img/carousel-0.jpeg',
   },
   {
     id: '4',
     title: 'Expo & Nativewind',
     description: 'Build beautiful apps with Expo and Nativewind.',
-    imageUrl: 'https://placehold.co/100x100',
+    imageUrl: 'https://dsp.org.bt/assets/cms/img/carousel-0.jpeg',
   },
   {
     id: '5',
